@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Expense & Budget Visualizer</title>
+</head>
+
+<body>
+<div class="app-wrapper">
+
+    <!-- TOGGLE -->
+    <div class="theme-toggle">
+        <button id="toggleTheme">🌙 Dark Mode</button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="title-box">
+        <h1>Expense & Budget Visualizer</h1>
+    </div>
+
+    <!-- TOP -->
+    <div class="top-section">
+
+        <!-- LEFT -->
+        <div class="left-box">
+            <img src="./img/ExpenseTracker.webp" class="logo" alt="logo">
+            <p class="summary">
+                This website helps users track their expenses, monitor their total balance, 
+                and visualize spending through an interactive chart. It includes useful features 
+                such as a dark mode for comfortable viewing, a spending limit alert that highlights 
+                transactions exceeding a set limit, and a monthly summary view to keep track of expenses over time.
+            </p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right-box">
+            <h2 class="section-title">Total Balance</h2>
+            <h1 id="balance">Rp.0,-</h1>
+
+            <!-- INFO LIMIT -->
+            <p id="limitInfo"></p>
+
+            <!-- WARNING -->
+            <p id="limitWarning" class="limit-warning"></p>
+        </div>
+
+    </div>
+
+    <!-- LIMIT -->
+    <fieldset>
+        <h2>Spending Limit</h2>
+
+        <input type="number" id="limit" placeholder="Contoh: 50000">
+
+        <button onclick="setLimit()" class="add-btn">
+            Add Limit
+        </button>
+    </fieldset>
+
+    <!-- FORM -->
+    <fieldset>
+        <h2>Add Transaction</h2>
+
+        <p>Item Name</p>
+        <input type="text" id="name">
+
+        <p>Amount</p>
+        <input type="number" id="amount">
+
+        <p>Category</p>
+        <select id="category">
+            <optgroup label="Category">
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+            </optgroup>
+        </select>
+
+        <br><br>
+
+        <button class="add-btn" onclick="addTransaction()">Add Transaction</button>
+    </fieldset>
+
+    <!-- CONTENT -->
+    <div class="container">
+
+        <!-- LIST -->
+        <div class="transactions">
+            <h3>Transactions</h3>
+            <ul id="list"></ul>
+        </div>
+
+        <!-- CHART -->
+        <div class="chart-box">
+            <h3>Chart</h3>
+
+            <p id="monthlySummary">Total bulan ini: Rp.0,-</p>
+
+            <canvas id="chart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
